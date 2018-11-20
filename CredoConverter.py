@@ -1,5 +1,6 @@
 import requests
 from forex_python.converter import CurrencyRates
+from msvcrt import getch
 
 c = CurrencyRates()
 eth_url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
@@ -32,6 +33,7 @@ eth_price = float(c.convert('USD', 'AUD', eth_price_us)) # The price of 1 ETH in
 credo_value_eth = float(credo_total * credo_eth) # The price of total held credo in ETH
 credo_value = float(credo_value_eth * eth_price) # The price of total held credo in AUD
 credo_price = (credo_eth * eth_price) # The price of 1 credo in AUD
+print ""
 print "-----| These prices are an average value and not specific to your exchange. They may not be entirely accurate. |-----"
 print "The current price of 1 ETH is $" + ("%.3f" % eth_price) + "."
 print "The current price of 1 CREDO is $" + ("%.3f" % credo_price) + "."
@@ -47,5 +49,6 @@ else:
 	print "Your CREDO is worth what you have paid already."
 
 print ""
-print "Exiting the program now, have a nice day :)"
+print "Press any key to exit..."
+exiter = getch()
 exit()
