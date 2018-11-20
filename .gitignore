@@ -1,3 +1,5 @@
 dist
 build
 *.spec
+upx.1
+upx.exe
