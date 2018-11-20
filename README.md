@@ -12,4 +12,4 @@ This program uses the following Python modules:
 * forex_python
 * pyinstaller (for compiling to .exe)
 
-It is written/compiled in Python 2.7 with Visual Studio Code.
+It is written/compiled in Python 2.7 with Visual Studio Code. UPX is used to help compress the EXE file.
