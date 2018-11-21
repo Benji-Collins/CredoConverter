@@ -14,11 +14,8 @@ print "Retrieving prices..."
 
 c = CurrencyRates()
 eth_url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
-credo_url = 'https://api.coinmarketcap.com/v1/ticker/credo/'
 response_eth = requests.get(eth_url)
-response_credo = requests.get(credo_url)
 eth_json = response_eth.json()
-credo_json = response_credo.json()
 
 print ""
 print "Welcome to the Credo->AUD converter. Please keep all inputs to numbers only, no symbols. Exit at any time with ctrl+C."
