@@ -1,5 +1,5 @@
 # CredoConverter
-A simple program to easily convert CREDO to AUD. Download the compiled .exe [here](https://github.com/Benji-Collins/CredoConverter/releases).
+A simple program to easily convert CREDO to AUD. Download the compiled .exe [here](https://github.com/Benji-Collins/CredoConverter/releases). There is also a web version available at [credoconverter.tk](https://credoconverter.tk).
 
 ---
 
