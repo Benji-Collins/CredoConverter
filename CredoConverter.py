@@ -1,5 +1,4 @@
 import requests
-from forex_python.converter import CurrencyRates
 from msvcrt import getch
 
 print (("""\
@@ -12,9 +11,12 @@ print (("""\
 """).encode('utf-8'))
 print "Retrieving prices..."
 
-c = CurrencyRates()
-eth_url = 'https://api.coinmarketcap.com/v1/ticker/ethereum/'
-response_eth = requests.get(eth_url)
+eth_url = 'https://api.btcmarkets.net/market/ETH/AUD/tick'
+headers = {
+    'User-Agent': 'CredoConverter',
+    'From': 'collinsbenji13@gmail.com'
+}
+response_eth = requests.get(eth_url, headers=headers)
 eth_json = response_eth.json()
 
 print ""
@@ -26,14 +28,13 @@ credo_total = float(raw_input("Total amount of CREDO you own: "))
 total_paid = float(raw_input("Total you have paid for CREDO ($): "))
 credo_eth = float(raw_input("Current CREDO price in ETH: "))
 
-eth_price_us = float(eth_json[0]['price_usd'])
-eth_price = float(c.convert('USD', 'AUD', eth_price_us)) # Change 'AUD' to any other supported currency if you wish.
+eth_price = float(eth_json['lastPrice'])
 credo_value_eth = float(credo_total * credo_eth)
 credo_value = float(credo_value_eth * eth_price)
 credo_price = (credo_eth * eth_price)
 
 print ""
-print "-----| These prices are an average value and not specific to your exchange. They may not be entirely accurate. |-----"
+print "-----| These prices are specific to BTCMarkets.net. Your exchange might have different values. |-----"
 print "The current price of 1 ETH is $" + ("%.3f" % eth_price) + "."
 print "The current price of 1 CREDO is $" + ("%.3f" % credo_price) + "."
 print "Your CREDO is currently worth a total of $" + ("%.3f" % credo_value) + "."
